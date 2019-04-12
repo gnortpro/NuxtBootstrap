@@ -1,0 +1,10 @@
+.container {
+  min-height: unset !important;
+}
+.wrapper {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+  display: -ms-flex;
+  display: -webkit-flex;
+}
