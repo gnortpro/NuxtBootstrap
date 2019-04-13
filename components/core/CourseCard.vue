@@ -1,24 +1,48 @@
 <template>
-  <b-card
-    title="Card Title"
-    img-src="https://picsum.photos/600/300/?image=25"
-    img-alt="Image"
-    img-top
-    tag="article"
-    style="max-width: 20rem;"
-    class="mb-2"
-  >
-    <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </b-card-text>
+  <div class="courseCard">
+    <div class="text-center">
+      <b-img :src="eb" thumbnail fluid alt="Responsive image"></b-img>
+    </div>
 
-    <b-button href="#" variant="primary">Go somewhere</b-button>
-  </b-card>
+    <div class="cardDescription">
+      <div class="cardTitle">
+        <h2>{{ title }}</h2>
+      </div>
+      <p>{{ description }}</p>
+    </div>
+
+    <b-button href="#">Khám phá ngay</b-button>
+  </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      eb: 'course/eb.png',
+      title: 'Giao tiếp toàn diện Eng Breaking Revolution',
+      description:
+        'Luyện giao tiếp từ cơ bản đến chuyên sâu và dễ dàng chinh phục mức điểm 650 TOEIC.'
+    }
+  }
+}
 </script>
 
-<style></style>
+<style>
+.courseCard a {
+  width: 100%;
+}
+.courseCard {
+  background: #efefef;
+  padding: 20px;
+}
+.cardTitle h2 {
+  font-size: 20px;
+  color: #1fa850;
+  font-weight: 600;
+}
+
+.cardDescription {
+  margin-top: 10px;
+}
+</style>

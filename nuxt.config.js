@@ -35,7 +35,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  // plugins: ['~/plugins/breakpoints'],
 
   /*
    ** Nuxt.js modules
@@ -45,7 +45,19 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    [
+      'nuxt-mq',
+      {
+        // Default breakpoint for SSR
+        defaultBreakpoint: 'default',
+        breakpoints: {
+          sm: 450,
+          md: 1250,
+          lg: Infinity
+        }
+      }
+    ]
   ],
   /*
    ** Axios module configuration

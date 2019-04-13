@@ -1,7 +1,9 @@
 <template>
-  <div class="left-drawer">
+  <div v-show="toggleLeftSidebar" class="left-drawer">
     <div v-show="toggleDrawer" class="large-drawer">
-      <div class="brand text-center" href="#">X3English</div>
+      <div class="brand text-center" href="#">
+        <b-img :src="logo"></b-img>
+      </div>
       <ul class="left-menu">
         <li class="">
           <nuxt-link to="/" class="row-custom">
@@ -44,7 +46,9 @@
     </div>
 
     <div v-show="!toggleDrawer" class="mini-drawer">
-      <div class="brand text-center" href="#">X3English</div>
+      <div class="brand text-center" href="#">
+        <b-img :src="logomini"></b-img>
+      </div>
       <ul class="left-menu">
         <li class="">
           <nuxt-link to="/" class="row-custom">
@@ -84,11 +88,26 @@
 
 <script>
 import { mapGetters } from 'vuex'
+// const imageUrl = require('~/assets/logo.png')
 export default {
+  data() {
+    return {
+      logo: 'logo.png',
+      logomini: 'logo-mini.png'
+    }
+  },
   computed: {
     ...mapGetters({
-      toggleDrawer: 'toggleDrawer'
+      toggleDrawer: 'toggleDrawer',
+      toggleLeftSidebar: 'toggleLeftSidebar'
     })
+  },
+  beforeMount() {
+    if (this.$mq === 'sm') {
+      this.$store.commit('toggleLeftSidebar', false)
+    } else {
+      this.$store.commit('toggleLeftSidebar', true)
+    }
   }
 }
 </script>

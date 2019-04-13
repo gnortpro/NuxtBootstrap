@@ -2,6 +2,9 @@
   <div class=" header">
     <b-navbar toggleable fluid type="light" variant="light">
       <b-button class="material-icons" @click="toggleDrawer()">dehaze</b-button>
+      <template v-if="$mq === 'sm'"
+        ><em> <b-img :src="logo"></b-img></em
+      ></template>
       <b-nav-item-dropdown right>
         <!-- Using 'button-content' slot -->
         <template slot="button-content"
@@ -16,6 +19,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      logo: 'logo.png'
+    }
+  },
   methods: {
     toggleDrawer() {
       this.$store.commit('toggleDrawer')
